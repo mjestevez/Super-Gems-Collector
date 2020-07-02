@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/HvsH(Multiplayer).unity
+    guid: 34da13bb8edab2843ab15f2957e8e626
+  - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: c9eb009fa6e6a4548b1f5fdebe6408b3
   - enabled: 1

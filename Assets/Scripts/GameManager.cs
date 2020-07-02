@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
+    public bool multiplayer;
 
     private int player1Value=0;
     private int player2Value=0;
@@ -18,16 +19,27 @@ public class GameManager : MonoBehaviour
     public AudioClip[] audios;
     private AudioSource audioSr;
     public AudioSource musica;
+    public GameObject gameplayCanvas;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     private void Start()
     {
-        instance = this;
-        StartCoroutine(StartGame());
+        if (!multiplayer)
+        {
+            StartCoroutine(StartGame()); 
+        }
         audioSr = GetComponent<AudioSource>();
-        Time.timeScale = 0;
-        
-    }
 
+    }
+    public void StartGameMultiplayer()
+    {
+        gameplayCanvas.SetActive(true);
+        StartCoroutine(StartGame());
+    }
     private void Update()
     {
         if (start)
@@ -62,6 +74,9 @@ public class GameManager : MonoBehaviour
 
     IEnumerator StartGame()
     {
+        audioSr.clip = audios[0];
+        audioSr.Play();
+        startTimer.text = "3";
         yield return new WaitForSecondsRealtime(1f);
         audioSr.clip = audios[1];
         audioSr.Play();
