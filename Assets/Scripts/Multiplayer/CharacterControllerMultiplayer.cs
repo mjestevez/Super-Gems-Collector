@@ -11,6 +11,7 @@ public class CharacterControllerMultiplayer : NetworkBehaviour
     public bool lookToMouse;
     public string movementAxis;
     public bool _facingRight = true;
+    public float move = 0;
 
     [Header("Jump")]
     public bool CanJump;
@@ -26,6 +27,12 @@ public class CharacterControllerMultiplayer : NetworkBehaviour
     private float counter;
     private AudioSource audioSr;
 
+    [Header("Multiplayer")]
+    [Range(0,5)]
+    public float fixedDistanceMax = 0.5f;
+    [Range(0, 0.5f)]
+    public float fixedDistanceMin = 0.01f;
+
     // others
     private Animator _anim;
 
@@ -34,11 +41,11 @@ public class CharacterControllerMultiplayer : NetworkBehaviour
     {
         audioSr = GetComponentInChildren<AudioSource>();
         _anim = GetComponentInChildren<Animator>();
-        if (!_facingRight)
-        {
-            Flip();
-            _facingRight = !_facingRight;
-        }
+        //if (!_facingRight)
+        //{
+        //    Flip();
+        //    _facingRight = !_facingRight;
+        //}
         StartCoroutine(SetConfigPlayer());
     }
 
@@ -71,21 +78,23 @@ public class CharacterControllerMultiplayer : NetworkBehaviour
 
     private IEnumerator SetConfigPlayer()
     {
-        float timer = 0;
-        while (timer<1f)
+        while (!GameManagerMultiplayer.instance.start)
         {
             if (!hasAuthority)
             {
                 gameObject.tag = "Player 2";
                 GetComponentInChildren<SpriteRenderer>().color = Color.green;
+                if (isClient)
+                    _facingRight = false;
             }
             else
             {
                 gameObject.tag = "Player 1";
                 GetComponentInChildren<SpriteRenderer>().color = Color.white;
+                if (isServer)
+                    _facingRight = false;
             }
             Debug.Log("Se esta haciendo");
-            timer += Time.deltaTime;
             yield return 1;
         }
         
@@ -93,8 +102,7 @@ public class CharacterControllerMultiplayer : NetworkBehaviour
 
     private void CheckMovement()
     {
-        float move = 0;
-
+        move = 0;
         move = Input.GetAxisRaw(movementAxis);
 
         int direction = _facingRight ? 1 : -1;
@@ -167,4 +175,36 @@ public class CharacterControllerMultiplayer : NetworkBehaviour
         }
         counter += Time.fixedDeltaTime;
     }
+
+    public bool HasAuthority()
+    {
+        return hasAuthority;
+    }
+
+    public void LerpPosition(Vector3 desiredPosition, float smooth)
+    {
+        float distance = Vector3.Distance(transform.position, desiredPosition);
+        if (distance >= fixedDistanceMax || distance <= fixedDistanceMin)
+            transform.position = desiredPosition;
+        else
+            transform.position = Vector3.Lerp(transform.position, desiredPosition, smooth * Time.deltaTime);
+    }
+
+    public void IsLookingRight(bool facingRight)
+    {
+            if (facingRight)
+                transform.rotation = Quaternion.Euler(Vector3.zero);
+            else
+                transform.rotation = Quaternion.Euler(new Vector3(0,180,0));
+    }
+
+    public void SetAnimator(bool jumping, bool moving)
+    {
+        _anim.SetBool("Jump", jumping);
+        if(moving)
+            _anim.SetFloat("Speed", 1);
+        else
+            _anim.SetFloat("Speed", 0);
+    }
+
 }

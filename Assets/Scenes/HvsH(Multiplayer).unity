@@ -448,12 +448,17 @@ PrefabInstance:
     - target: {fileID: 4316792879077952002, guid: 6feb13ce1840fe343b1f1dfb3d345ddb,
         type: 3}
       propertyPath: type
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4316792879077952002, guid: 6feb13ce1840fe343b1f1dfb3d345ddb,
         type: 3}
       propertyPath: multiplayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4316792879077952002, guid: 6feb13ce1840fe343b1f1dfb3d345ddb,
+        type: 3}
+      propertyPath: value
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4316792879077952003, guid: 6feb13ce1840fe343b1f1dfb3d345ddb,
         type: 3}
@@ -663,12 +668,17 @@ PrefabInstance:
     - target: {fileID: 4316792879077952002, guid: 6feb13ce1840fe343b1f1dfb3d345ddb,
         type: 3}
       propertyPath: type
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4316792879077952002, guid: 6feb13ce1840fe343b1f1dfb3d345ddb,
         type: 3}
       propertyPath: multiplayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4316792879077952002, guid: 6feb13ce1840fe343b1f1dfb3d345ddb,
+        type: 3}
+      propertyPath: value
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4316792879077952003, guid: 6feb13ce1840fe343b1f1dfb3d345ddb,
         type: 3}
@@ -1953,6 +1963,11 @@ PrefabInstance:
       propertyPath: multiplayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4316792879077952002, guid: 6feb13ce1840fe343b1f1dfb3d345ddb,
+        type: 3}
+      propertyPath: value
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4316792879077952003, guid: 6feb13ce1840fe343b1f1dfb3d345ddb,
         type: 3}
       propertyPath: m_Name
@@ -2186,12 +2201,17 @@ PrefabInstance:
     - target: {fileID: 4316792879077952002, guid: 6feb13ce1840fe343b1f1dfb3d345ddb,
         type: 3}
       propertyPath: type
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4316792879077952002, guid: 6feb13ce1840fe343b1f1dfb3d345ddb,
         type: 3}
       propertyPath: multiplayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4316792879077952002, guid: 6feb13ce1840fe343b1f1dfb3d345ddb,
+        type: 3}
+      propertyPath: value
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4316792879077952003, guid: 6feb13ce1840fe343b1f1dfb3d345ddb,
         type: 3}
@@ -2354,7 +2374,7 @@ MonoBehaviour:
   m_DontDestroyOnLoad: 1
   m_RunInBackground: 1
   m_ScriptCRCCheck: 1
-  m_MaxDelay: 0.01
+  m_MaxDelay: 0.001
   m_LogLevel: 2
   m_PlayerPrefab: {fileID: 6726101878155937903, guid: 2de9712ebdf679749a6424136c36c141,
     type: 3}
@@ -2416,7 +2436,7 @@ MonoBehaviour:
   m_MatchHost: mm.unet.unity3d.com
   m_MatchPort: 443
   matchName: default
-  matchSize: 4
+  matchSize: 2
   isNetworkActive: 0
   matchMaker: {fileID: 0}
 --- !u!1 &796496872
@@ -2560,6 +2580,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player1ValueText: {fileID: 1035964679}
   player2ValueText: {fileID: 545305430}
+  gameTime: 60
   gameTimeText: {fileID: 1810696953}
   start: 0
   startTimer: {fileID: 1818374121}
@@ -2755,6 +2776,16 @@ PrefabInstance:
         type: 3}
       propertyPath: multiplayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4316792879077952002, guid: 6feb13ce1840fe343b1f1dfb3d345ddb,
+        type: 3}
+      propertyPath: type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4316792879077952002, guid: 6feb13ce1840fe343b1f1dfb3d345ddb,
+        type: 3}
+      propertyPath: value
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4316792879077952003, guid: 6feb13ce1840fe343b1f1dfb3d345ddb,
         type: 3}
@@ -3005,12 +3036,17 @@ PrefabInstance:
     - target: {fileID: 4316792879077952002, guid: 6feb13ce1840fe343b1f1dfb3d345ddb,
         type: 3}
       propertyPath: type
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4316792879077952002, guid: 6feb13ce1840fe343b1f1dfb3d345ddb,
         type: 3}
       propertyPath: multiplayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4316792879077952002, guid: 6feb13ce1840fe343b1f1dfb3d345ddb,
+        type: 3}
+      propertyPath: value
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4316792879077952003, guid: 6feb13ce1840fe343b1f1dfb3d345ddb,
         type: 3}

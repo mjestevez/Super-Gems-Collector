@@ -62,7 +62,11 @@ public class Gem : MonoBehaviour
 
     private void Cooldown()
     {
-        cooldownTime = Random.Range(2, 5);
+        if (!multiplayer)
+            cooldownTime = Random.Range(2, 5);
+        else
+            cooldownTime = 5f;
+        
         cooldown = true;
         sr.enabled = false;
         cc.enabled = false;
@@ -70,14 +74,23 @@ public class Gem : MonoBehaviour
 
     private void Activate()
     {
-        cooldown = false;
-        int n = Random.Range(0, 101);
-        if (n <= 50) type = GemType.Copper;
-        else if (n <= 90) type = GemType.Gold;
-        else type = GemType.Diamond;
-        SetValue();
-        sr.enabled = true;
-        cc.enabled = true;
+        if(!multiplayer)
+        {
+            cooldown = false;
+            int n = Random.Range(0, 101);
+            if (n <= 50) type = GemType.Copper;
+            else if (n <= 90) type = GemType.Gold;
+            else type = GemType.Diamond;
+            SetValue();
+            sr.enabled = true;
+            cc.enabled = true;
+        }
+        else
+        {
+            cooldown = false;
+            sr.enabled = true;
+            cc.enabled = true;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

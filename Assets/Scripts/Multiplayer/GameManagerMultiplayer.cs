@@ -11,7 +11,7 @@ public class GameManagerMultiplayer : MonoBehaviour
     private int player2Value = 0;
     public Text player1ValueText;
     public Text player2ValueText;
-    private float gameTime = 60f;
+    public float gameTime = 60f;
     public Text gameTimeText;
     public bool start = false;
     public Text startTimer;

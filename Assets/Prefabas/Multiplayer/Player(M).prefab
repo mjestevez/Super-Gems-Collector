@@ -144,7 +144,7 @@ GameObject:
   - component: {fileID: 2368912966771840729}
   - component: {fileID: 2788885603090111347}
   - component: {fileID: 7775100778515279272}
-  - component: {fileID: -70687753800462261}
+  - component: {fileID: -1781418209732024306}
   m_Layer: 8
   m_Name: Player(M)
   m_TagString: Player 1
@@ -233,6 +233,7 @@ MonoBehaviour:
   lookToMouse: 0
   movementAxis: Horizontal
   _facingRight: 1
+  move: 0
   CanJump: 1
   jumpAxis: Vertical
   jumpForce: 500
@@ -242,6 +243,8 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 1024
+  fixedDistanceMax: 1.6
+  fixedDistanceMin: 0.001
 --- !u!114 &7775100778515279272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,7 +278,7 @@ MonoBehaviour:
     i15: 0
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
---- !u!114 &-70687753800462261
+--- !u!114 &-1781418209732024306
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -284,19 +287,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3730945063033369228}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13d6c522af31447398568cc65334232b, type: 3}
+  m_Script: {fileID: 11500000, guid: 9a77173fcff63934489713bc708c7d24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TransformSyncMode: 1
-  m_SendInterval: 0.033333335
-  m_SyncRotationAxis: 3
-  m_RotationSyncCompression: 0
-  m_SyncSpin: 0
-  m_MovementTheshold: 0.001
-  m_VelocityThreshold: 0.0001
-  m_SnapThreshold: 5
-  m_InterpolateRotation: 1
-  m_InterpolateMovement: 1
+  smoothFactor: 10
+  threshold: 0.1
 --- !u!1 &8412810235988080856
 GameObject:
   m_ObjectHideFlags: 0
