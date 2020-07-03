@@ -19,11 +19,6 @@ public class PlayerConnection : NetworkBehaviour
     void CmdSpawnPlayer()
     {
         CharacterControllerMultiplayer character = Instantiate(player,transform.position,transform.rotation);
-        if (!hasAuthority)
-        {
-            character.tag = "Player 2";
-        }
-
         NetworkServer.SpawnWithClientAuthority(character.gameObject, connectionToClient);
     }
 }

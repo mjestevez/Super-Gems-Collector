@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.Networking;
+using System;
 
 public class CharacterControllerMultiplayer : NetworkBehaviour
 {
@@ -38,7 +39,7 @@ public class CharacterControllerMultiplayer : NetworkBehaviour
             Flip();
             _facingRight = !_facingRight;
         }
-
+        StartCoroutine(SetConfigPlayer());
     }
 
     // Update is called once per frame
@@ -64,6 +65,28 @@ public class CharacterControllerMultiplayer : NetworkBehaviour
             {
                 _grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadious, whatIsGround);
             }
+        }
+        
+    }
+
+    private IEnumerator SetConfigPlayer()
+    {
+        float timer = 0;
+        while (timer<1f)
+        {
+            if (!hasAuthority)
+            {
+                gameObject.tag = "Player 2";
+                GetComponentInChildren<SpriteRenderer>().color = Color.green;
+            }
+            else
+            {
+                gameObject.tag = "Player 1";
+                GetComponentInChildren<SpriteRenderer>().color = Color.white;
+            }
+            Debug.Log("Se esta haciendo");
+            timer += Time.deltaTime;
+            yield return 1;
         }
         
     }

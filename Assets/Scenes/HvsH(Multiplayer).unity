@@ -450,6 +450,11 @@ PrefabInstance:
       propertyPath: type
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4316792879077952002, guid: 6feb13ce1840fe343b1f1dfb3d345ddb,
+        type: 3}
+      propertyPath: multiplayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4316792879077952003, guid: 6feb13ce1840fe343b1f1dfb3d345ddb,
         type: 3}
       propertyPath: m_Name
@@ -659,6 +664,11 @@ PrefabInstance:
         type: 3}
       propertyPath: type
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4316792879077952002, guid: 6feb13ce1840fe343b1f1dfb3d345ddb,
+        type: 3}
+      propertyPath: multiplayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4316792879077952003, guid: 6feb13ce1840fe343b1f1dfb3d345ddb,
         type: 3}
@@ -1938,6 +1948,11 @@ PrefabInstance:
       propertyPath: type
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4316792879077952002, guid: 6feb13ce1840fe343b1f1dfb3d345ddb,
+        type: 3}
+      propertyPath: multiplayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4316792879077952003, guid: 6feb13ce1840fe343b1f1dfb3d345ddb,
         type: 3}
       propertyPath: m_Name
@@ -2172,6 +2187,11 @@ PrefabInstance:
         type: 3}
       propertyPath: type
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4316792879077952002, guid: 6feb13ce1840fe343b1f1dfb3d345ddb,
+        type: 3}
+      propertyPath: multiplayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4316792879077952003, guid: 6feb13ce1840fe343b1f1dfb3d345ddb,
         type: 3}
@@ -2535,10 +2555,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 796496872}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4c757b74edb0ab4b86d0fb522880a9d, type: 3}
+  m_Script: {fileID: 11500000, guid: 43ec39068dc909940ad126d9b44326b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  multiplayer: 1
   player1ValueText: {fileID: 1035964679}
   player2ValueText: {fileID: 545305430}
   gameTimeText: {fileID: 1810696953}
@@ -2731,6 +2750,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4316792879077952002, guid: 6feb13ce1840fe343b1f1dfb3d345ddb,
+        type: 3}
+      propertyPath: multiplayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4316792879077952003, guid: 6feb13ce1840fe343b1f1dfb3d345ddb,
         type: 3}
@@ -2982,6 +3006,11 @@ PrefabInstance:
         type: 3}
       propertyPath: type
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4316792879077952002, guid: 6feb13ce1840fe343b1f1dfb3d345ddb,
+        type: 3}
+      propertyPath: multiplayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4316792879077952003, guid: 6feb13ce1840fe343b1f1dfb3d345ddb,
         type: 3}

@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour
+public class GameManagerMultiplayer : MonoBehaviour
 {
-    public static GameManager instance = null;
+    public static GameManagerMultiplayer instance = null;
 
-    private int player1Value=0;
-    private int player2Value=0;
+    private int player1Value = 0;
+    private int player2Value = 0;
     public Text player1ValueText;
     public Text player2ValueText;
     private float gameTime = 60f;
@@ -27,12 +27,16 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+
         audioSr = GetComponent<AudioSource>();
-        StartCoroutine(StartGame()); 
-        
 
     }
-    
+
+    public void StartGameMultiplayer()
+    {
+        gameplayCanvas.SetActive(true);
+        StartCoroutine(StartGame());
+    }
     private void Update()
     {
         if (start)
@@ -52,7 +56,7 @@ public class GameManager : MonoBehaviour
                 start = false;
             }
         }
-        
+
     }
     public void AddPlayer1Value(int value)
     {
@@ -84,7 +88,7 @@ public class GameManager : MonoBehaviour
         startTimer.text = "GO!";
         musica.Play();
         yield return new WaitForSecondsRealtime(1f);
-        
+
         startTimer.enabled = false;
         start = true;
         Time.timeScale = 1;
@@ -92,10 +96,11 @@ public class GameManager : MonoBehaviour
 
     IEnumerator FinishGame()
     {
-        
+
         yield return new WaitForSecondsRealtime(2f);
         if (player1Value == player2Value) MySceneManager.instance.LoadDraw();
         else if (player1Value > player2Value) MySceneManager.instance.LoadPlayer1Win();
         else MySceneManager.instance.LoadPlayer2Win();
     }
+    
 }

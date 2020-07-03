@@ -39,7 +39,7 @@ public class MultiplayerManager : NetworkBehaviour
         List<PlayerConnection> currentPlayers = GetCurrentPlayers();
         SpawnPlayers(currentPlayers);
         UIManager.Instance.DisableMenu();
-        GameManager.instance.StartGameMultiplayer();
+        GameManagerMultiplayer.instance.StartGameMultiplayer();
     }
 
     [Command]

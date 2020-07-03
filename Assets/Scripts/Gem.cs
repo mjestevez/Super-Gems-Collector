@@ -9,6 +9,7 @@ public enum GemType
 }
 public class Gem : MonoBehaviour
 {
+    public bool multiplayer;
     public GemType type;
     public int value;
     public Sprite[] sprites;
@@ -81,21 +82,45 @@ public class Gem : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag=="Player 1")
+        if (!multiplayer)
         {
-            GameManager.instance.AddPlayer1Value(value);
-        }else if (collision.gameObject.tag == "Player 2")
-        {
-            GameManager.instance.AddPlayer2Value(value);
+            if (collision.gameObject.tag == "Player 1")
+            {
+                GameManager.instance.AddPlayer1Value(value);
+            }
+            else if (collision.gameObject.tag == "Player 2")
+            {
+                GameManager.instance.AddPlayer2Value(value);
+            }
+            else if (collision.gameObject.tag == "IA")
+            {
+                GameManager.instance.AddPlayer1Value(value);
+            }
+            else if (collision.gameObject.tag == "IA2")
+            {
+                GameManager.instance.AddPlayer2Value(value);
+            }
         }
-        else if (collision.gameObject.tag == "IA")
+        else
         {
-            GameManager.instance.AddPlayer1Value(value);
+            if (collision.gameObject.tag == "Player 1")
+            {
+                GameManagerMultiplayer.instance.AddPlayer1Value(value);
+            }
+            else if (collision.gameObject.tag == "Player 2")
+            {
+                GameManagerMultiplayer.instance.AddPlayer2Value(value);
+            }
+            else if (collision.gameObject.tag == "IA")
+            {
+                GameManagerMultiplayer.instance.AddPlayer1Value(value);
+            }
+            else if (collision.gameObject.tag == "IA2")
+            {
+                GameManagerMultiplayer.instance.AddPlayer2Value(value);
+            }
         }
-        else if (collision.gameObject.tag == "IA2")
-        {
-            GameManager.instance.AddPlayer2Value(value);
-        }
+        
         audioSr.Play();
         Cooldown();
     }
