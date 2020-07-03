@@ -41,24 +41,19 @@ public class CharacterControllerMultiplayer : NetworkBehaviour
     {
         audioSr = GetComponentInChildren<AudioSource>();
         _anim = GetComponentInChildren<Animator>();
-        //if (!_facingRight)
-        //{
-        //    Flip();
-        //    _facingRight = !_facingRight;
-        //}
         StartCoroutine(SetConfigPlayer());
     }
 
     // Update is called once per frame
     private void Update()
     {
-        if (hasAuthority)
+        if (hasAuthority && GameManagerMultiplayer.instance.start)
         {
             if (CanJump)
             {
                 CheckJump();
             }
-            if (canMove)
+            if (canMove )
             {
                 CheckMovement();
             }
@@ -66,7 +61,7 @@ public class CharacterControllerMultiplayer : NetworkBehaviour
     }
     void FixedUpdate()
     {
-        if (hasAuthority)
+        if (hasAuthority && GameManagerMultiplayer.instance.start)
         {
             if (CanJump)
             {
