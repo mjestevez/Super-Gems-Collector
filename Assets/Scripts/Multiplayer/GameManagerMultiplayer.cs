@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.UI;
 
-public class GameManagerMultiplayer : MonoBehaviour
+public class GameManagerMultiplayer : NetworkBehaviour
 {
     public static GameManagerMultiplayer instance = null;
 
@@ -98,6 +99,14 @@ public class GameManagerMultiplayer : MonoBehaviour
     {
 
         yield return new WaitForSecondsRealtime(2f);
+        
+        if (isServer)
+            NetworkManager.singleton.StopServer();
+        if (isClient)
+            NetworkManager.singleton.StopClient();
+
+        NetworkManager.singleton.StopMatchMaker();
+
         if (player1Value == player2Value) MySceneManager.instance.LoadDraw();
         else if (player1Value > player2Value) MySceneManager.instance.LoadPlayer1Win();
         else MySceneManager.instance.LoadPlayer2Win();
