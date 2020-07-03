@@ -31,6 +31,10 @@ public class MySceneManager : MonoBehaviour
     {
         SceneManager.LoadScene("HvsH");
     }
+    public void HvsHMulti()
+    {
+        SceneManager.LoadScene("HvsH(Multiplayer)");
+    }
     public void HvsIA()
     {
         SceneManager.LoadScene("HvsIA");
@@ -39,6 +43,7 @@ public class MySceneManager : MonoBehaviour
     {
         SceneManager.LoadScene("IAvsIA");
     }
+    
 
     public void LoadPlayer1Win()
     {

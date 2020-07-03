@@ -28,8 +28,8 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         audioSr = GetComponent<AudioSource>();
-        StartCoroutine(StartGame()); 
-        
+        StartCoroutine(StartGame());
+        Time.timeScale = 0;
 
     }
     
