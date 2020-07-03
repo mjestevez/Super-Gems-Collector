@@ -31,7 +31,7 @@ public class UIManager : NetworkBehaviour
             }
             if (amountOfPlayers >= 2)
                 buttonStart.interactable=true;
-
+            
         }
         else
         {
