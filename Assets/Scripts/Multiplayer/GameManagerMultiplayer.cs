@@ -29,7 +29,7 @@ public class GameManagerMultiplayer : MonoBehaviour
     {
 
         audioSr = GetComponent<AudioSource>();
-
+        Time.timeScale = 0;
     }
 
     public void StartGameMultiplayer()

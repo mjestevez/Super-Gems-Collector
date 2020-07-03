@@ -95,7 +95,7 @@ public class CharacterControllerMultiplayer : NetworkBehaviour
                     _facingRight = false;
             }
             Debug.Log("Se esta haciendo");
-            yield return 1;
+            yield return new WaitForSecondsRealtime(Time.unscaledDeltaTime);
         }
         
     }
